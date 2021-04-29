@@ -1,0 +1,7 @@
+.Board {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  border: 1px solid black;
+  max-width: 400px;
+}

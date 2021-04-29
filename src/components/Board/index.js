@@ -1,12 +1,13 @@
 import React from 'react';
-import Square from '../../components/Square/index.js'
+import Column from '../../components/Column/index.js';
+import './index.css';
 
-export default function Board() {
+export default function Board({num_rows}) {
+  const renderCol = (index, num_rows) => <Column key={index} num_rows={num_rows} />;
+
   return (
-    <article>
-      {Array.from({ length: 9 }, (x, i) => (renderSquare()))}
+    <article className="Board">
+      {Array.from({ length: num_rows }, (x, i) => (renderCol(i, num_rows)))}
     </article>
   );
 }
-
-const renderSquare = () => <Square />;
