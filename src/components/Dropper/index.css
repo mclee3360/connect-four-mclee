@@ -1,0 +1,15 @@
+.Dropper {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 24px;
+}
+
+.Dropper--disabled {
+  cursor: default;
+}
+
+.DropperWrapper {
+  display: flex;
+  justify-content: center;
+}

@@ -2,11 +2,7 @@ import React from 'react';
 import './index.css';
 
 export default function Square({row, col, state, update_board}) {
-  const handleClick = () => update_board(row, col);
-
-  return (
-    <button className={renderTokenClasses(state)} onClick={handleClick}>{state}</button>
-  );
+  return <div className={renderTokenClasses(state)}>{state}</div>;
 }
 
 const renderTokenClasses = (state) => {
