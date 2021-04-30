@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Dropper from '../../components/Dropper/index.js';
 import Square from '../../components/Square/index.js';
+import checkForWin from './checkWin.js';
 import './index.css';
 
 export default function Board() {
@@ -22,14 +23,19 @@ export default function Board() {
     newRowState[col] = p1Turn ? 1 : 2;
     newBoardState[droppedRow] = newRowState;
 
+    setBoardState(newBoardState);
+    setP1Turn(!p1Turn);
+
+    if (checkForWin(newBoardState)) {
+      setDisabledDroppers(disabledDroppers.map((dropper) => true));
+      return;
+    };
+
     if (droppedRow === 0) {
       const newDisabledDroppers = disabledDroppers.slice();
       newDisabledDroppers[col] = true;
       setDisabledDroppers(newDisabledDroppers);
     }
-
-    setBoardState(newBoardState);
-    setP1Turn(!p1Turn);
   };
 
   const renderDroppers = (num_cols) => disabledDroppers.map((dropper, col) => (

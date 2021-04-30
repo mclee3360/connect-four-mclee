@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 
-export default function Square({row, col, state, update_board}) {
+export default function Square({row, col, state}) {
   return <div className={renderTokenClasses(state)}>{state}</div>;
 }
 
