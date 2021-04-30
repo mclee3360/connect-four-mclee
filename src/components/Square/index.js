@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './index.css';
 
-export default function Square() {
-  const [checked, setChecked] = useState(false);
-  const handleClickEvent = () => checked || setChecked(true);
+export default function Square({state, update_board}) {
+  const handleClick = () => update_board();
 
   return (
-    <button className="Square" onClick={handleClickEvent}>
-      <div className="Square-content">{checked ? 'X' : ''}</div>
+    <button className="Square" onClick={handleClick}>
+      <div className="Square-content"></div>
     </button>
   );
 }
