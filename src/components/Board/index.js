@@ -5,10 +5,19 @@ import './index.css';
 export default function Board() {
   const num_rows = 6;
   const num_cols = 7;
-  const [boardState, setBoardState] = useState(Array(num_rows).fill(Array(num_cols).fill(null)));
+  const [boardState, setBoardState] = useState(initBoard(num_rows, num_cols));
+
   const updateBoard = (i, j) => {
+    const newState = boardState.slice();
+    const newRowState = boardState[i].slice();
+    newRowState[j] = 1;
+    newState[i] = newRowState;
+    setBoardState(newState);
   };
-  const renderSquares = (num_rows, num_cols) => boardState.map((row, i) => row.map((square, j) => <Square key={`${i},${j}`} state={boardState[i][j]} update_board={updateBoard} />));
+
+  const renderSquares = (num_rows, num_cols) => boardState.map((row, i) => row.map((square, j) => {
+    return <Square key={`${i}-${j}`} row={i} col={j} state={boardState[i][j]} update_board={updateBoard} />;
+  }));
 
   return (
     <article className="Board Board-connectFour">
@@ -16,3 +25,8 @@ export default function Board() {
     </article>
   );
 }
+
+const initBoard = (rows, cols) => {
+  const board = Array(rows).fill(null);
+  return board.map((row) => Array(cols).fill(null));
+};
