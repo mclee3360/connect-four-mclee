@@ -4,12 +4,11 @@ import Square from '../../components/Square/index.js';
 import checkForWin from './checkWin.js';
 import './index.css';
 
-export default function Board() {
+export default function Board({player, updatePlayer}) {
   const num_rows = 6;
   const num_cols = 7;
   const [boardState, setBoardState] = useState(initBoard(num_rows, num_cols));
-  const [disabledDroppers, setDisabledDroppers] = useState(Array(num_cols).fill(false))
-  const [p1Turn, setP1Turn] = useState(true);
+  const [disabledDroppers, setDisabledDroppers] = useState(Array(num_cols).fill(false));
 
   const dropToken = (col) => {
     const droppedRow = getRowToDrop(boardState, col);
@@ -20,11 +19,11 @@ export default function Board() {
 
     const newBoardState = boardState.slice();
     const newRowState = newBoardState[droppedRow].slice();
-    newRowState[col] = p1Turn ? 1 : 2;
+    newRowState[col] = player;
     newBoardState[droppedRow] = newRowState;
 
     setBoardState(newBoardState);
-    setP1Turn(!p1Turn);
+    updatePlayer(swapPlayer(player));
 
     if (checkForWin(newBoardState)) {
       setDisabledDroppers(disabledDroppers.map((dropper) => true));
@@ -67,3 +66,7 @@ const getRowToDrop = (board, col) => {
   }
   return -1;
 };
+
+const swapPlayer = (player) => {
+  return (player - 1) * -1 + 2;
+}

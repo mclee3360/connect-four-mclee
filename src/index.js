@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Board from './components/Board/index.js';
+import Game from './components/Game/index.js';
 
-ReactDOM.render(<Board />, document.querySelector('#root'));
+ReactDOM.render(<Game />, document.querySelector('#root'));
