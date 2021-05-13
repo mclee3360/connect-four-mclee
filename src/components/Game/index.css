@@ -1,0 +1,11 @@
+.Game {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.Game-play {
+  width: 100%;
+  max-width: 400px;
+}

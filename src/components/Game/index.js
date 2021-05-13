@@ -6,6 +6,14 @@ export default function Game() {
   const [player, setPlayer] = useState(1);
 
   return (
-    <Board player={player} updatePlayer={setPlayer} />
+    <article class="Game">
+      <section class="Game-play">
+        <h1>Connect 4</h1>
+        <Board player={player} updatePlayer={setPlayer} />
+      </section>
+      <section>
+        <p>It’s Player {player}’s Turn</p>
+      </section>
+    </article>
   );
 }

@@ -46,7 +46,7 @@ export default function Board({player, updatePlayer}) {
   )));
 
   return (
-    <article className="PlayingArea">
+    <article>
       <section className="Droppers">{renderDroppers(num_cols)}</section>
       <section className="Board">{renderSquares()}</section>
     </article>

@@ -1,7 +1,3 @@
-.PlayingArea {
-  max-width: 400px;
-}
-
 .Droppers, .Board {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
