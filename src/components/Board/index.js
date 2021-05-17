@@ -4,7 +4,7 @@ import Square from '../../components/Square/index.js';
 import checkForWin from './checkWin.js';
 import './index.css';
 
-export default function Board({player, updatePlayer}) {
+export default function Board({player, updatePlayer, updateWinner}) {
   const num_rows = 6;
   const num_cols = 7;
   const [boardState, setBoardState] = useState(initBoard(num_rows, num_cols));
@@ -23,13 +23,14 @@ export default function Board({player, updatePlayer}) {
     newBoardState[droppedRow] = newRowState;
 
     setBoardState(newBoardState);
-    updatePlayer(swapPlayer(player));
 
     if (checkForWin(newBoardState)) {
       setDisabledDroppers(disabledDroppers.map((dropper) => true));
+      updateWinner(player)
       return;
-    };
+    }
 
+    updatePlayer(swapPlayer(player));
     if (droppedRow === 0) {
       const newDisabledDroppers = disabledDroppers.slice();
       newDisabledDroppers[col] = true;
