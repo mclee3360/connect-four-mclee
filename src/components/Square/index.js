@@ -4,14 +4,16 @@ import './index.css';
 export default function Square({row, col, state, winning, corner}) {
   const renderToken = () => {
     if (state) {
-      const classes = `Token Token--p${state}${winning ? ' Token--winning' : ''}`;
+      const classes = `Token Token--p${state}`;
       return <div className={classes}>{state}</div>;
     }
     return null;
   }
 
+  let classes = `Square${winning ? ' Square--winning' : ''}`
   if (corner) {
-    return <span className='Square Square-corner'>{renderToken()}</span>;
+    classes += ' Square--corner';
+    return <span className={classes}>{renderToken()}</span>;
   }
-  return <div className='Square'>{renderToken()}</div>;
+  return <div className={classes}>{renderToken()}</div>;
 }
