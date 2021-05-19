@@ -9,6 +9,7 @@ export default function Board({player, updatePlayer, updateWinner}) {
   const num_cols = 7;
   const [boardState, setBoardState] = useState(initBoard(num_rows, num_cols));
   const [disabledDroppers, setDisabledDroppers] = useState(Array(num_cols).fill(false));
+  const [winningLine, setWinningLine] = useState([]);
 
   const dropToken = (col) => {
     const droppedRow = getRowToDrop(boardState, col);
@@ -24,7 +25,9 @@ export default function Board({player, updatePlayer, updateWinner}) {
 
     setBoardState(newBoardState);
 
-    if (checkForWin(newBoardState).length > 0) {
+    const winLine = checkForWin(newBoardState);
+    if (winLine.length > 0) {
+      setWinningLine(winLine);
       setDisabledDroppers(disabledDroppers.map((dropper) => true));
       updateWinner(player)
       return;
@@ -42,9 +45,10 @@ export default function Board({player, updatePlayer, updateWinner}) {
     <Dropper key={`dropper-${col}`} col={col} dropToken={dropToken} disabled={dropper} />
   ));
 
-  const renderSquares = () => boardState.map((row, i) => row.map((square, j) => (
-    <Square key={`${i}-${j}`} row={i} col={j} state={boardState[i][j]} />
-  )));
+  const renderSquares = () => boardState.map((row, i) => row.map((square, j) => {
+    const isWinningSquare = winningLine.some((coord) => coord[0] === i && coord[1] === j);
+    return <Square key={`${i}-${j}`} winning={isWinningSquare} row={i} col={j} state={boardState[i][j]} />;
+  }));
 
   return (
     <article>

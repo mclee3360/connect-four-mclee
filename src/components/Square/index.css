@@ -20,3 +20,11 @@
 .Square--p2 {
   background-image: url('./p2.png');
 }
+
+.Square--winning.Square--p1 {
+  background-color: #ffc4b8;
+}
+
+.Square--winning.Square--p2 {
+  background-color: #ffe6a8;
+}
