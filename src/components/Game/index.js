@@ -23,7 +23,7 @@ export default function Game() {
   return (
     <article className="Game">
       <section className="Game-play">
-        <h1>Connect 4</h1>
+        <h1 className="Heading--primary">Play Connect 4</h1>
         <Board key={gameCount} player={player} updatePlayer={setPlayer} updateWinner={setWinner} />
       </section>
       <section>
