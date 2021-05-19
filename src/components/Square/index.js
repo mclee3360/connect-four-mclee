@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 
-export default function Square({row, col, state, winning, corner}) {
+export default function Square({row, col, state, winning}) {
   const renderToken = () => {
     if (state) {
       const classes = `Token Token--p${state}`;
@@ -11,9 +11,5 @@ export default function Square({row, col, state, winning, corner}) {
   }
 
   let classes = `Square${winning ? ' Square--winning' : ''}`
-  if (corner) {
-    classes += ' Square--corner';
-    return <span className={classes}>{renderToken()}</span>;
-  }
   return <div className={classes}>{renderToken()}</div>;
 }

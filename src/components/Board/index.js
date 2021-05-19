@@ -47,8 +47,7 @@ export default function Board({player, updatePlayer, updateWinner}) {
 
   const renderSquares = () => boardState.map((row, i) => row.map((square, j) => {
     const isWinningSquare = winningLine.some((coord) => coord[0] === i && coord[1] === j);
-    const isCorner = (i === 0 && (j === 0 || j === row.length - 1)) || (i === boardState.length - 1 && (j === 0 || j === row.length - 1));
-    return <Square key={`${i}-${j}`} winning={isWinningSquare} row={i} col={j} state={boardState[i][j]} corner={isCorner} />;
+    return <Square key={`${i}-${j}`} winning={isWinningSquare} row={i} col={j} state={boardState[i][j]} />;
   }));
 
   return (

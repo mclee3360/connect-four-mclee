@@ -1,6 +1,13 @@
 .Droppers, .Board {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  border: 4px solid transparent;
+}
+
+.Board {
+  border-color: #2861f1;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px 0 rgba(31, 36, 38, 0.15)
 }
 
 .Droppers {

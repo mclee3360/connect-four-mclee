@@ -10,22 +10,6 @@
   font-size: 0;
 }
 
-.Square--corner:first-of-type {
-  border-top-left-radius: 16px;
-}
-
-.Square--corner:nth-of-type(2) {
-  border-top-right-radius: 16px;
-}
-
-.Square--corner:nth-of-type(3) {
-  border-bottom-left-radius: 16px;
-}
-
-.Square--corner:last-of-type {
-  border-bottom-right-radius: 16px;
-}
-
 @keyframes highlight {
   0%   { background-color: rgba(255, 255, 255, 0) }
   50%  { background-color: rgba(255, 255, 255, 0.5) }
