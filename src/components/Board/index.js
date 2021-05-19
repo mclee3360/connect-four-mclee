@@ -24,7 +24,7 @@ export default function Board({player, updatePlayer, updateWinner}) {
 
     setBoardState(newBoardState);
 
-    if (checkForWin(newBoardState)) {
+    if (checkForWin(newBoardState).length > 0) {
       setDisabledDroppers(disabledDroppers.map((dropper) => true));
       updateWinner(player)
       return;
