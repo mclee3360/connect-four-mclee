@@ -7,7 +7,7 @@
 .Board {
   border-color: #2861f1;
   border-radius: 16px;
-  box-shadow: 0 6px 16px 0 rgba(31, 36, 38, 0.15)
+  box-shadow: 0 6px 16px 0 rgba(31, 36, 38, 0.15);
 }
 
 .Droppers {

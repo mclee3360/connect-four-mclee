@@ -28,7 +28,7 @@ export default function Game() {
       </section>
       <section>
         {renderPlayer(player, winner)}
-        <button onClick={resetGame}>Reset Game</button>
+        <button className="Button" onClick={resetGame}>Reset Game</button>
       </section>
     </article>
   );

@@ -17,3 +17,17 @@ p {
 .Heading--primary {
   font-size: 2rem;
 }
+
+.Button {
+  transition: all 0.2s ease-in-out;
+  background-color: transparent;
+  padding: 0.25rem 1rem;
+  font-family: inherit;
+  font-size: 1.15rem;
+  cursor: pointer;
+  border-radius: 8px
+}
+
+.Button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
