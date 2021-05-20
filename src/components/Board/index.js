@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Dropper from '../../components/Dropper/index.js';
 import Square from '../../components/Square/index.js';
 import checkForWin from './checkWin.js';
-import './index.css';
+import './index.scss';
 
 export default function Board({player, updatePlayer, updateWinner}) {
   const num_rows = 6;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Board from '../../components/Board/index.js';
-import './index.css';
+import './index.scss';
 
 export default function Game() {
   const [player, setPlayer] = useState(1);

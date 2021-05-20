@@ -3,10 +3,10 @@
   border: none;
   background-color: transparent;
   font-size: 24px;
-}
 
-.Dropper--disabled {
-  cursor: default;
+  &--disabled {
+    cursor: default;
+  }
 }
 
 .DropperWrapper {

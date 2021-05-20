@@ -1,0 +1,15 @@
+.Game {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  &-play {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .Button {
+    text-transform: uppercase;
+  }
+}
