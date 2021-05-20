@@ -8,10 +8,11 @@ export default function Game() {
   const [gameCount, setGameCount] = useState(0);
 
   const renderPlayer = (player, winner) => {
+    const playerClasses = `Game-player Game-player--${player}`;
     if (winner) {
-      return <p>Player {winner} Wins!</p>;
+      return <p><span className={playerClasses}>Player {winner}</span> Wins!</p>;
     }
-    return <p>It’s Player {player}’s Turn</p>;
+    return <p>It’s <span className={playerClasses}>Player {player}’s</span> Turn</p>;
   }
 
   const resetGame = () => {

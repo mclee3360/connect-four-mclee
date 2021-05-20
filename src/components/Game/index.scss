@@ -2,11 +2,28 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
 
   &-play {
     width: 100%;
     max-width: 500px;
+
+    .Heading--primary {
+      text-align: center;
+    }
+  }
+
+  &-player {
+    font-weight: 700;
+
+    &--1 {
+      color: #b13929;
+    }
+
+    &--2 {
+      color: #d0a024;
+    }
   }
 
   .Button {
