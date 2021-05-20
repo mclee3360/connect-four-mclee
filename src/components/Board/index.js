@@ -42,7 +42,7 @@ export default function Board({player, updatePlayer, updateWinner}) {
   };
 
   const renderDroppers = (num_cols) => disabledDroppers.map((dropper, col) => (
-    <Dropper key={`dropper-${col}`} col={col} dropToken={dropToken} disabled={dropper} />
+    <Dropper key={`dropper-${col}`} player={player} col={col} dropToken={dropToken} disabled={dropper} />
   ));
 
   const renderSquares = () => boardState.map((row, i) => row.map((square, j) => {
