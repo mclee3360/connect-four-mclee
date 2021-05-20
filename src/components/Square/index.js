@@ -4,7 +4,7 @@ import './index.scss';
 export default function Square({row, col, state, winning}) {
   const renderToken = () => {
     if (state) {
-      const classes = `Token Token--p${state}`;
+      const classes = `Token Token--p${state} Token-row--${row + 1}`;
       return <div className={classes}>{state}</div>;
     }
     return null;
