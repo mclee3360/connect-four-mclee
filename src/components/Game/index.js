@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Board from '../../components/Board/index.js';
+import Confetti from '../../components/Confetti/index.js';
 import './index.scss';
 
 export default function Game() {
@@ -14,6 +15,7 @@ export default function Game() {
     }
     return <p>It’s <span className={playerClasses}>Player {player}’s</span> Turn</p>;
   }
+  const renderConfetti = (winner) => winner ? <Confetti /> : null;
 
   const resetGame = () => {
     setPlayer(1);
@@ -23,6 +25,7 @@ export default function Game() {
 
   return (
     <article className="Game">
+      {renderConfetti(winner)}
       <section className="Game-play">
         <h1 className="Heading--primary">Play Connect 4</h1>
         <Board key={gameCount} player={player} updatePlayer={setPlayer} updateWinner={setWinner} />
