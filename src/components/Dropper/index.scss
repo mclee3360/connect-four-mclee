@@ -26,6 +26,7 @@
       }
 
       &.Dropper--disabled {
+        cursor: default;
         background-image: none;
       }
     }
