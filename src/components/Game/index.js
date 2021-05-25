@@ -15,7 +15,7 @@ export default function Game() {
     }
     return <p>It’s <span className={playerClasses}>Player {player}’s</span> Turn</p>;
   }
-  const renderConfetti = (winner) => winner ? <Confetti /> : null;
+  const renderConfetti = (winner) => winner ? <Confetti loop={false} /> : null;
 
   const resetGame = () => {
     setPlayer(1);

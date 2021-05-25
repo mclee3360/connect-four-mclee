@@ -1,32 +1,39 @@
 import { useEffect } from 'react';
 import confetti from 'canvas-confetti';
+import Sound from '../../components/Sound/index.js';
+import popSound from '../../assets/pop.mp3';
 
-export default function Confetti() {
+export default function Confetti({loop}) {
   useEffect(() => {
-    const launcher = launchConfetti();
+    const launcher = launchConfetti(loop);
 
     return () => {
-      clearInterval(launcher);
+      if (launcher) {
+        clearInterval(launcher);
+      }
       confetti.reset();
     };
   });
-  return null;
+
+  return <Sound file={popSound} volume={0.4} />;
 }
 
-const launchConfetti = () => {
+const launchConfetti = (loop) => {
   const initConfetti = () => {
-    confetti({
-      particleCount: 150,
-      startVelocity: 70,
-      angle: 60,
+    const commonOptions = {
+      particleCount: loop ? 150 : 400,
+      startVelocity: 90,
       spread: 55,
+      ticks: loop ? 200 : 300,
+    };
+    confetti({
+      ...commonOptions,
+      angle: 60,
       origin: { x: 0 }
     });
     confetti({
-      particleCount: 150,
-      startVelocity: 70,
+      ...commonOptions,
       angle: 120,
-      spread: 55,
       origin: { x: 1 }
     });
   };
@@ -37,5 +44,5 @@ const launchConfetti = () => {
   };
 
   animateConfetti();
-  return setInterval(animateConfetti, 1500);
+  return loop ? setInterval(animateConfetti, 1500) : null;
 };
