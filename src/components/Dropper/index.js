@@ -1,7 +1,7 @@
 import React from 'react';
 import useSound from 'use-sound';
 import './index.scss';
-import dropEffect from '../../assets/drop.mp3';
+import dropEffect from 'assets/drop.mp3';
 
 export default function Dropper({player, col, disabled, dropToken}) {
   const [playDrop] = useSound(dropEffect, { volume: 0.2 });

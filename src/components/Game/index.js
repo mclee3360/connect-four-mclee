@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Board from '../../components/Board/index.js';
-import Confetti from '../../components/Confetti/index.js';
+import Board from 'components/Board/index.js';
+import Confetti from 'components/Confetti/index.js';
 import './index.scss';
 
 export default function Game() {

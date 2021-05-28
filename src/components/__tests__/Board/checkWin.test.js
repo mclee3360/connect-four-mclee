@@ -1,4 +1,4 @@
-import checkForWin, { isInBounds, getLine } from '../checkWin.js';
+import checkForWin, { isInBounds, getLine } from 'components/Board/checkWin.js';
 
 const buildBoard = () => {
   return [[0, 0, 0, 0, 0, 0, 0],
@@ -16,7 +16,7 @@ describe('checkForWin', () => {
   test('returns empty list if there are no lines', () => {
     expect(checkForWin(board)).toEqual([]);
   });
-  
+
   describe('return coordinate list if there is a line', () => {
     test('➡️', () => {
       board[3][3] = board[3][4] = board[3][5] = board[3][6] = 1;

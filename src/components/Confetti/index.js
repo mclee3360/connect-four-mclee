@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import confetti from 'canvas-confetti';
-import Sound from '../../components/Sound/index.js';
-import popSound from '../../assets/pop.mp3';
+import Sound from 'components/Sound/index.js';
+import popSound from 'assets/pop.mp3';
 
 export default function Confetti({loop}) {
   useEffect(() => {
