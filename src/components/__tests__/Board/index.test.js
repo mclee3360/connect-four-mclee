@@ -70,6 +70,6 @@ describe('Board', () => {
 
     it('should call to update winner', async () => {
       await waitFor(() => expect(updateWinner).toHaveBeenCalled());
-    })
+    });
   });
 });

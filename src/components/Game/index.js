@@ -30,7 +30,7 @@ export default function Game() {
         <h1 className="Heading--primary">Play Connect 4</h1>
         <Board key={gameCount} player={player} updatePlayer={setPlayer} updateWinner={setWinner} />
       </section>
-      <section>
+      <section className="Game-info">
         {renderPlayer(player, winner)}
         <button className="Button" onClick={resetGame}>Reset Game</button>
       </section>
