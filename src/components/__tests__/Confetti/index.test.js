@@ -1,7 +1,5 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
-import { act } from 'react-dom/test-utils';
-import { waitFor } from '@testing-library/react'
+import { act, render, waitFor } from '@testing-library/react';
 import Confetti from 'components/Confetti/index.js';
 
 const addConfetti = () => {
@@ -25,33 +23,21 @@ jest.mock('canvas-confetti', () => {
 });
 
 describe('Confetti', () => {
-  let container;
-
-  beforeEach(() => {
-    container = document.createElement('div');
-    document.body.appendChild(container);
-  });
-  afterEach(() => {
-    unmountComponentAtNode(container);
-    container.remove();
-    container = null;
-  });
-
   it('should render a sound component', async () => {
-    act(() => { render(<Confetti loop={true} />, container); });
-    await waitFor(() => expect(container.querySelector('.Sound')).toBeTruthy());
+    render(<Confetti loop={true} />);
+    await waitFor(() => expect(document.querySelector('.Sound')).toBeTruthy());
   });
 
   it('should render confetti on mount', async () => {
-    act(() => { render(<Confetti loop={true} />, container); });
+    render(<Confetti loop={true} />);
     await waitFor(() => expect(document.querySelector('.Confetti')).toBeTruthy());
   });
 
   it('should remove confetti on dismount', async () => {
-    act(() => { render(<Confetti loop={true} />, container); });
-    act(() => { unmountComponentAtNode(container); });
+    const { unmount } = render(<Confetti loop={true} />);
+    unmount();
     await waitFor(() => {
-      expect(container.querySelector('.Sound')).toBeFalsy();
+      expect(document.querySelector('.Sound')).toBeFalsy();
       expect(document.querySelector('.Confetti')).toBeFalsy();
     });
   });
